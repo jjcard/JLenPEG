@@ -1,0 +1,80 @@
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'pmd'
+apply plugin: 'findbugs'
+apply plugin: 'jacoco'
+//apply plugin: 'idea'
+
+
+targetCompatibility = JavaVersion.VERSION_1_8 
+sourceCompatibility = JavaVersion.VERSION_1_8
+jar {
+	manifest.attributes provider: 'gradle'
+}
+eclipse {
+	project {
+		name = 'JLenPEG';
+	}
+}
+sourceSets{
+	main{
+		java {
+			srcDir 'src'
+		}
+		resources {
+			srcDir 'resources'
+		}
+	}
+	test{
+		java{
+			srcDir 'test'
+		}
+		resources{
+			srcDir 'testResources'
+		}
+	}
+}
+
+task wrapper(type: Wrapper){
+	gradleVersion = '4.2.1'
+}
+pmd {
+	ruleSets = ["java-basic", "java-naming", "java-braces", "java-design", "java-unnecessary"]
+	ignoreFailures = true;
+}
+
+findbugs {
+	ignoreFailures = true
+}
+tasks.withType(FindBugs) {
+	reports {
+		xml.enabled = false
+		html.enabled = true
+	}
+ }
+ jacocoTestReport {//run with gradlew test jacocoTestReport
+	reports {
+		xml.enabled false
+		csv.enabled false
+		html.enabled true
+		html.destination file("${buildDir}/reports/jacoco")
+	}
+ }
+ 
+ jacocoTestCoverageVerification {
+     violationRules {
+        rule {
+            limit {
+                minimum = 0.7
+            }
+        }
+     }
+ }
+ 
+repositories {
+	mavenCentral()
+}
+dependencies {
+	testCompile 'junit:junit:4.12'
+	testCompile group: 'commons-io', name: 'commons-io', version: '2.4'
+}
