@@ -1,0 +1,13 @@
+language: java
+
+before_install: 
+ - cd JLenPEG
+ - chmod +x gradlew
+
+before_cache:
+  - rm -f  $HOME/JLenPEG/.gradle/caches/modules-2/modules-2.lock
+  - rm -fr $HOME/JLenPEG/.gradle/caches/*/plugin-resolution/
+cache:
+  directories:
+    - $HOME/JLenPEG/.gradle/caches/
+    - $HOME/JLenPEG/.gradle/wrapper/
