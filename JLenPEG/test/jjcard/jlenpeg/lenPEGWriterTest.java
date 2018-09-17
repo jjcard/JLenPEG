@@ -1,6 +1,5 @@
 package jjcard.jlenpeg;
 
-import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 import java.awt.image.RenderedImage;
@@ -28,7 +27,9 @@ public class lenPEGWriterTest {
 	@Test
 	public void writeLena_bmp() throws IOException {
 		File outputFile = new File("bin/writeLenaBmp.test");
-        assertFalse("File should not already exist", outputFile.exists());
+        if (outputFile.exists()) {
+            FileUtils.forceDelete(outputFile);
+        }
         OutputStream outputStream = null;
 		try {
 //			RenderedImage lennaBmp = ImageIO.read(notNull("bmp stream", getClass().getResourceAsStream("/Lenna.bmp")));
@@ -47,7 +48,10 @@ public class lenPEGWriterTest {
 	@Test
 	public void writeNotLena() throws IOException {
 		File outputFile = new File("bin/writeNotLenaPng.jpg");
-		assertFalse("File should not already exist", outputFile.exists());
+//		assertFalse("File should not already exist", outputFile.exists());
+		if (outputFile.exists()) {
+		    FileUtils.forceDelete(outputFile);
+		}
 		OutputStream outputStream = null;
 		try {
 //			RenderedImage notlennapng = ImageIO
@@ -60,7 +64,6 @@ public class lenPEGWriterTest {
             if (outputStream != null) {
                 outputStream.close();
             }
-			FileUtils.forceDelete(outputFile);
 		}
 	}
 

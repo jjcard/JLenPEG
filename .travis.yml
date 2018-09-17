@@ -4,7 +4,7 @@ before_install:
  - cd JLenPEG
  - chmod +x gradlew
 install: 
-  - ./gradlew build --stacktrace
+  - ./gradlew build --scan -i
 before_cache:
   - rm -f  $HOME/JLenPEG/.gradle/caches/modules-2/modules-2.lock
   - rm -fr $HOME/JLenPEG/.gradle/caches/*/plugin-resolution/
