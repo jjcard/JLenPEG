@@ -37,7 +37,10 @@ public class lenPEGWriterTest {
 			ImageIO.write(lennaBmp, "lenPEG", outputStream);
 			assertTrue("Image file should now exist", outputFile.exists());
 		} finally {
-		    outputStream.close();
+            if (outputStream != null) {
+                outputStream.close();
+            }
+		    
 			FileUtils.forceDelete(outputFile);
 		}
 	}
@@ -54,7 +57,9 @@ public class lenPEGWriterTest {
 			ImageIO.write(notlennapng, "lenPEG", outputStream);
 			assertTrue("Image file should now exist", outputFile.exists());
 		} finally {
-		    outputStream.close();
+            if (outputStream != null) {
+                outputStream.close();
+            }
 			FileUtils.forceDelete(outputFile);
 		}
 	}
