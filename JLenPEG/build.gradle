@@ -36,7 +36,7 @@ sourceSets{
 }
 
 wrapper {
-	gradleVersion = '4.10'
+	gradleVersion = '4.10.3'
 }
 pmd {
 	ruleSets = ["java-basic", "java-naming", "java-braces", "java-design", "java-unnecessary"]
