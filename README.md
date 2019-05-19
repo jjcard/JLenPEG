@@ -1,6 +1,6 @@
 # JLenPEG
 
-Java implenmentation of the brilliant image compression algorithm, LenPEG.
+Java implenmentation of the brilliant image compression algorithm, [LenPEG](http://www.dangermouse.net/esoteric/lenpeg.html).
 Currently this library is only striving to implement Version 1 of the algorithm.
 
 
