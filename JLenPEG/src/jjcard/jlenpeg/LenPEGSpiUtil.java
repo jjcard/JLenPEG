@@ -11,7 +11,7 @@ public class LenPEGSpiUtil {
 	}
 	
 	public static final String VENDOR_NAME = "jjcard.jlenpeg";
-	public static final String VERSION = "0.1.0";
+	public static final String VERSION = "0.2.0";
 	public static final String WRITER_CLASS_NAME = "jjcard.jlenpeg.LenPEGWriter";
 	public static final String READER_CLASS_NAME = "jjcard.jlenpeg.LenPEGReader";
 	

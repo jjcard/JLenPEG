@@ -12,7 +12,6 @@ import javax.imageio.metadata.IIOMetadata;
 import javax.imageio.spi.ImageReaderSpi;
 import javax.imageio.stream.ImageInputStream;
 
-@Deprecated
 /**
  * Doesn't quite work yet 
  *
@@ -133,6 +132,7 @@ public class LenPEGReader extends ImageReader {
 		
 		if (!inited) {
 			ImageInputStream inputStream = (ImageInputStream) getInput();
+			inputStream.seek(0);
 			int firstBit = inputStream.readBit();
 			if (firstBit == 0) {
 				//IT's LENNA!
@@ -140,14 +140,16 @@ public class LenPEGReader extends ImageReader {
 			} else if (firstBit == 1){
 				//use this instead
 				realReader = getNextImageReader(inputStream);
+				realReader.setInput(inputStream);
 			} else {
 			    throw new IllegalStateException("First bit should be 0 or 1, but was " + firstBit);
 			}
 			inited = true;
 		}
 	}
-	private ImageReader getNextImageReader(ImageInputStream inputStream) {
-	  //TODO read as other
+	private ImageReader getNextImageReader(ImageInputStream inputStream) throws IOException {
+        
+        inputStream.seek(1);
 	    Iterator<ImageReader> imageReaders = ImageIO.getImageReaders(inputStream);
 	    while(imageReaders.hasNext()) {
 	        ImageReader reader = imageReaders.next();

@@ -1,6 +1,8 @@
 package jjcard.jlenpeg;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -10,7 +12,6 @@ import javax.imageio.ImageIO;
 
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
-import org.junit.Ignore;
 import org.junit.Test;
 
 public class LenPEGReaderTest {
@@ -25,7 +26,7 @@ public class LenPEGReaderTest {
         LenPEGUtil.deregisterReader();
     }
 
-    @Ignore
+//    @Ignore
     @Test
     public void lennaImageReadTest() throws IOException {
         File inputFile = new File("testResources/reader/writeLenaBmp.test");
@@ -35,7 +36,7 @@ public class LenPEGReaderTest {
         assertNotNull("Image read was null", image);
         assertTrue("Should be Lenna", LenPEGUtil.isLenna(image));
     }
-    @Ignore
+//    @Ignore
     @Test
     public void notLennaImageReadTest() throws IOException {
         File inputFile = new File("testResources/reader/writeNotLenaPng.jpg");

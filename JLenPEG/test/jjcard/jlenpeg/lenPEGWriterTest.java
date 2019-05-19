@@ -7,6 +7,8 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
+import java.nio.file.Files;
+import java.util.Arrays;
 
 import javax.imageio.ImageIO;
 
@@ -37,6 +39,13 @@ public class lenPEGWriterTest {
 			outputStream = new FileOutputStream(outputFile);
 			ImageIO.write(lennaBmp, "lenPEG", outputStream);
 			assertTrue("Image file should now exist", outputFile.exists());
+			
+			
+			byte[] actualContents = Files.readAllBytes(outputFile.toPath());
+			
+			byte[] expectedContents = Files.readAllBytes(new File("testResources/writer/writeLenaBmp.expected").toPath());
+			
+			assertTrue("Actual writeLenaBmp contents different then expected",Arrays.equals(expectedContents, actualContents));
 		} finally {
             if (outputStream != null) {
                 outputStream.close();
@@ -60,10 +69,20 @@ public class lenPEGWriterTest {
             outputStream = new FileOutputStream(outputFile);
 			ImageIO.write(notlennapng, "lenPEG", outputStream);
 			assertTrue("Image file should now exist", outputFile.exists());
+			
+            byte[] actualContents = Files.readAllBytes(outputFile.toPath());
+
+            byte[] expectedContents = Files
+                    .readAllBytes(new File("testResources/writer/writeNotLenaPng.expected").toPath());
+
+            assertTrue("Actual writeLenaBmp contents different then expected",
+                    Arrays.equals(expectedContents, actualContents));
 		} finally {
             if (outputStream != null) {
                 outputStream.close();
             }
+            
+            FileUtils.forceDelete(outputFile);
 		}
 	}
 
