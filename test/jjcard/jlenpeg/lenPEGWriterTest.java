@@ -35,7 +35,10 @@ public class lenPEGWriterTest {
         OutputStream outputStream = null;
 		try {
 //			RenderedImage lennaBmp = ImageIO.read(notNull("bmp stream", getClass().getResourceAsStream("/Lenna.bmp")));
-			RenderedImage lennaBmp = ImageIO.read(new File("testResources/Lenna.bmp"));
+			final File inputFile = new File("testResources/Lenna.bmp");
+            assertTrue("Input File "+inputFile.getAbsolutePath() + "does not exist",inputFile.exists());
+            assertTrue("Input File "+inputFile.getAbsolutePath() + "cannot be read", inputFile.canRead());
+            RenderedImage lennaBmp = ImageIO.read(inputFile);
 			outputStream = new FileOutputStream(outputFile);
 			ImageIO.write(lennaBmp, "lenPEG", outputStream);
 			assertTrue("Image file should now exist", outputFile.exists());
@@ -51,7 +54,9 @@ public class lenPEGWriterTest {
                 outputStream.close();
             }
 		    
-			FileUtils.forceDelete(outputFile);
+            if (outputFile.exists()) {
+                FileUtils.forceDelete(outputFile);
+            }
 		}
 	}
 	@Test
@@ -65,7 +70,10 @@ public class lenPEGWriterTest {
 		try {
 //			RenderedImage notlennapng = ImageIO
 //					.read(notNull("airplane stream", getClass().getResourceAsStream("/airplane.png")));
-            RenderedImage notlennapng = ImageIO.read(new File("testResources/airplane.png"));
+            final File inputFile = new File("testResources/airplane.png");
+            assertTrue("Input File "+inputFile.getAbsolutePath() + "does not exist",inputFile.exists());
+            assertTrue("Input File "+inputFile.getAbsolutePath() + "cannot be read", inputFile.canRead());
+            RenderedImage notlennapng = ImageIO.read(inputFile);
             outputStream = new FileOutputStream(outputFile);
 			ImageIO.write(notlennapng, "lenPEG", outputStream);
 			assertTrue("Image file should now exist", outputFile.exists());
@@ -82,7 +90,9 @@ public class lenPEGWriterTest {
                 outputStream.close();
             }
             
-            FileUtils.forceDelete(outputFile);
+            if (outputFile.exists()) {
+                FileUtils.forceDelete(outputFile);
+            }
 		}
 	}
 
