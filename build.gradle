@@ -78,3 +78,9 @@ dependencies {
 	testCompile 'junit:junit:4.12'
 	testCompile group: 'commons-io', name: 'commons-io', version: '2.4'
 }
+test {
+    testLogging {
+        events "failed"
+        exceptionFormat "short"
+    }
+}
