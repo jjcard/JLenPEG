@@ -93,9 +93,6 @@ public class LenPEGUtil {
 		try {
 //		    setLenna(ImageIO.read(Thread.currentThread().getContextClassLoader().getResourceAsStream("./lenna.png")));
 		    InputStream lennaInputStream = LenPEGUtil.class.getResourceAsStream("/lenna.png");
-		    if (lennaInputStream == null) {
-		       lennaInputStream = LenPEGUtil.class.getResourceAsStream("/resources/lenna.png");
-		    }
 			setLenna(ImageIO.read(lennaInputStream));
 		} catch (Exception e) {
 			e.printStackTrace();
