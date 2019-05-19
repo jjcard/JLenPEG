@@ -4,14 +4,13 @@ install: true
 jdk:
  - oraclejdk8
 before_install: 
- - cd JLenPEG
  - chmod +x gradlew
 script: 
   - ./gradlew build
 before_cache:
-  - rm -f  $HOME/JLenPEG/.gradle/caches/modules-2/modules-2.lock
-  - rm -fr $HOME/JLenPEG/.gradle/caches/*/plugin-resolution/
+  - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
+  - rm -fr $HOME/.gradle/caches/*/plugin-resolution/
 cache:
   directories:
-    - $HOME/JLenPEG/.gradle/caches/
-    - $HOME/JLenPEG/.gradle/wrapper/
+    - $HOME/.gradle/caches/
+    - $HOME/.gradle/wrapper/
