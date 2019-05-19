@@ -21,6 +21,11 @@ public class lenPEGWriterTest {
 	@BeforeClass
 	public static void setup() {
 		LenPEGUtil.registerWriter();
+		File outputFile = new File("bin/");
+		if (!outputFile.exists()) {
+		    outputFile.mkdir();
+		}
+		
 	}
 	@AfterClass
 	public static void tearDown() {
