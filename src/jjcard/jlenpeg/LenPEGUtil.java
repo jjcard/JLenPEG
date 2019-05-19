@@ -3,6 +3,7 @@ package jjcard.jlenpeg;
 import java.awt.image.BufferedImage;
 import java.awt.image.DataBuffer;
 import java.awt.image.RenderedImage;
+import java.io.InputStream;
 
 import javax.imageio.ImageIO;
 import javax.imageio.spi.IIORegistry;
@@ -91,7 +92,11 @@ public class LenPEGUtil {
 	static {
 		try {
 //		    setLenna(ImageIO.read(Thread.currentThread().getContextClassLoader().getResourceAsStream("./lenna.png")));
-			setLenna(ImageIO.read(LenPEGUtil.class.getResourceAsStream("/lenna.png")));
+		    InputStream lennaInputStream = LenPEGUtil.class.getResourceAsStream("/lenna.png");
+		    if (lennaInputStream == null) {
+		       lennaInputStream = LenPEGUtil.class.getResourceAsStream("/resources/lenna.png");
+		    }
+			setLenna(ImageIO.read(lennaInputStream));
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
