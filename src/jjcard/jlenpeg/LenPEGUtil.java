@@ -104,7 +104,7 @@ public class LenPEGUtil {
 	
 	private static void setLenna(final BufferedImage lenna) throws NotLennaException {
 		if (lenna == null) {
-			throw new IllegalArgumentException("lenna cannot be null");
+			throw new IllegalArgumentException("lenna image cannot be null");
 		}
 		//some sanity checks
 		if (lenna.getHeight() != LENNA_HEIGHT || lenna.getWidth() != LENNA_WIDTH) {
