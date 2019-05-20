@@ -28,9 +28,9 @@ public class LenPEGReaderTest {
 
     @Test
     public void lennaImageReadTest() throws IOException {
-        File inputFile = new File("testResources/reader/writeLenaBmp.test");
-        assertTrue("Input File "+inputFile.getAbsolutePath() + "does not exist",inputFile.exists());
-        assertTrue("Input File "+inputFile.getAbsolutePath() + "cannot be read", inputFile.canRead());
+        File inputFile = new File("src/test/resources/reader/writeLenaBmp.test");
+        assertTrue("Input File "+inputFile.getAbsolutePath() + " does not exist",inputFile.exists());
+        assertTrue("Input File "+inputFile.getAbsolutePath() + " cannot be read", inputFile.canRead());
         BufferedImage image = ImageIO.read(inputFile);
         assertNotNull("Image read was null", image);
         assertTrue("Should be Lenna", LenPEGUtil.isLenna(image));
@@ -38,9 +38,9 @@ public class LenPEGReaderTest {
 
     @Test
     public void notLennaImageReadTest() throws IOException {
-        File inputFile = new File("testResources/reader/writeNotLenaPng.jpg");
-        assertTrue("Input File "+inputFile.getAbsolutePath() + "does not exist",inputFile.exists());
-        assertTrue("Input File "+inputFile.getAbsolutePath() + "cannot be read",inputFile.canRead());
+        File inputFile = new File("src/test/resources/reader/writeNotLenaPng.jpg");
+        assertTrue("Input File "+inputFile.getAbsolutePath() + " does not exist",inputFile.exists());
+        assertTrue("Input File "+inputFile.getAbsolutePath() + " cannot be read",inputFile.canRead());
         BufferedImage image = ImageIO.read(inputFile);
         assertNotNull("Image read was null", image);
         assertFalse("Should not be Lenna", LenPEGUtil.isLenna(image));

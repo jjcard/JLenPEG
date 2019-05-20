@@ -1,6 +1,7 @@
 
 plugins {
   id "com.github.spotbugs" version "2.0.0"
+  id "com.gradle.build-scan" version "2.3"
 }
 apply plugin: 'java'
 apply plugin: 'eclipse'
@@ -17,21 +18,21 @@ eclipse {
 		name = 'JLenPEG';
 	}
 }
-sourceSets{
+sourceSets {
 	main{
 		java {
-			srcDir 'src'
+			srcDir 'src/main/java'
 		}
 		resources {
-			srcDir 'resources'
+			srcDir 'src/main/resources'
 		}
 	}
 	test{
 		java{
-			srcDir 'test'
+			srcDir 'src/test/java'
 		}
 		resources{
-			srcDir 'testResources'
+			srcDir 'src/test/resources'
 		}
 	}
 }

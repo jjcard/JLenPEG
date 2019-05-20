@@ -39,9 +39,9 @@ public class lenPEGWriterTest {
         }
         OutputStream outputStream = null;
 		try {
-			final File inputFile = new File("testResources/Lenna.bmp");
-            assertTrue("Input File "+inputFile.getAbsolutePath() + "does not exist",inputFile.exists());
-            assertTrue("Input File "+inputFile.getAbsolutePath() + "cannot be read", inputFile.canRead());
+			final File inputFile = new File("src/test/resources/Lenna.bmp");
+            assertTrue("Input File "+inputFile.getAbsolutePath() + " does not exist",inputFile.exists());
+            assertTrue("Input File "+inputFile.getAbsolutePath() + " cannot be read", inputFile.canRead());
             RenderedImage lennaBmp = ImageIO.read(inputFile);
 			outputStream = new FileOutputStream(outputFile);
 			ImageIO.write(lennaBmp, "lenPEG", outputStream);
@@ -50,7 +50,7 @@ public class lenPEGWriterTest {
 			
 			byte[] actualContents = Files.readAllBytes(outputFile.toPath());
 			
-			byte[] expectedContents = Files.readAllBytes(new File("testResources/writer/writeLenaBmp.expected").toPath());
+			byte[] expectedContents = Files.readAllBytes(new File("src/test/resources/writer/writeLenaBmp.expected").toPath());
 			
 			assertTrue("Actual writeLenaBmp contents different then expected",Arrays.equals(expectedContents, actualContents));
 		} finally {
@@ -71,9 +71,9 @@ public class lenPEGWriterTest {
 		}
 		OutputStream outputStream = null;
 		try {
-            final File inputFile = new File("testResources/airplane.png");
-            assertTrue("Input File "+inputFile.getAbsolutePath() + "does not exist",inputFile.exists());
-            assertTrue("Input File "+inputFile.getAbsolutePath() + "cannot be read", inputFile.canRead());
+            final File inputFile = new File("src/test/resources/airplane.png");
+            assertTrue("Input File "+inputFile.getAbsolutePath() + " does not exist",inputFile.exists());
+            assertTrue("Input File "+inputFile.getAbsolutePath() + " cannot be read", inputFile.canRead());
             RenderedImage notlennapng = ImageIO.read(inputFile);
             outputStream = new FileOutputStream(outputFile);
 			ImageIO.write(notlennapng, "lenPEG", outputStream);
@@ -82,7 +82,7 @@ public class lenPEGWriterTest {
             byte[] actualContents = Files.readAllBytes(outputFile.toPath());
 
             byte[] expectedContents = Files
-                    .readAllBytes(new File("testResources/writer/writeNotLenaPng.expected").toPath());
+                    .readAllBytes(new File("src/test/resources/writer/writeNotLenaPng.expected").toPath());
 
             assertTrue("Actual writeLenaBmp contents different then expected",
                     Arrays.equals(expectedContents, actualContents));
