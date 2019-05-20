@@ -91,9 +91,7 @@ public class LenPEGUtil {
 	private static BufferedImage lenna;
 	static {
 		try {
-//		    setLenna(ImageIO.read(Thread.currentThread().getContextClassLoader().getResourceAsStream("./lenna.png")));
 		    InputStream lennaInputStream = LenPEGUtil.class.getResourceAsStream("/Lenna.png");
-//		    InputStream lennaInputStream = LenPEGUtil.class.getClassLoader().getResourceAsStream("/Lenna.png");
 			setLenna(ImageIO.read(lennaInputStream));
 		} catch (Exception e) {
 			e.printStackTrace();

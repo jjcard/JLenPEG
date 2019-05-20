@@ -22,14 +22,11 @@ public class JLenPEGUtilTest {
 	
 	@Test
 	public void isLennaTest_png() throws IOException {
-//		assertTrue(LenPEGUtil.isLenna(ImageIO.read(notNull("png stream",getClass().getResourceAsStream("/Lenna.png")))));
 		assertTrue(LenPEGUtil.isLenna(ImageIO.read(new File("testResources/Lenna.png"))));
 	}
 	
 	@Test
-	public void isLennaTest_bmp() throws IOException {
-//		assertTrue(LenPEGUtil.isLenna( ImageIO.read(notNull("bmp stream",getClass().getClassLoader().getResourceAsStream("../testResources/Lenna.bmp")))));
-		
+	public void isLennaTest_bmp() throws IOException {		
 		assertTrue(LenPEGUtil.isLenna( ImageIO.read(new File("testResources/Lenna.bmp"))));
 	}
 	

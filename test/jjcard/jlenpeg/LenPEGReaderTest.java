@@ -26,7 +26,6 @@ public class LenPEGReaderTest {
         LenPEGUtil.deregisterReader();
     }
 
-//    @Ignore
     @Test
     public void lennaImageReadTest() throws IOException {
         File inputFile = new File("testResources/reader/writeLenaBmp.test");
@@ -36,7 +35,7 @@ public class LenPEGReaderTest {
         assertNotNull("Image read was null", image);
         assertTrue("Should be Lenna", LenPEGUtil.isLenna(image));
     }
-//    @Ignore
+
     @Test
     public void notLennaImageReadTest() throws IOException {
         File inputFile = new File("testResources/reader/writeNotLenaPng.jpg");

@@ -39,7 +39,6 @@ public class lenPEGWriterTest {
         }
         OutputStream outputStream = null;
 		try {
-//			RenderedImage lennaBmp = ImageIO.read(notNull("bmp stream", getClass().getResourceAsStream("/Lenna.bmp")));
 			final File inputFile = new File("testResources/Lenna.bmp");
             assertTrue("Input File "+inputFile.getAbsolutePath() + "does not exist",inputFile.exists());
             assertTrue("Input File "+inputFile.getAbsolutePath() + "cannot be read", inputFile.canRead());
@@ -67,14 +66,11 @@ public class lenPEGWriterTest {
 	@Test
 	public void writeNotLena() throws IOException {
 		File outputFile = new File("bin/writeNotLenaPng.jpg");
-//		assertFalse("File should not already exist", outputFile.exists());
 		if (outputFile.exists()) {
 		    FileUtils.forceDelete(outputFile);
 		}
 		OutputStream outputStream = null;
 		try {
-//			RenderedImage notlennapng = ImageIO
-//					.read(notNull("airplane stream", getClass().getResourceAsStream("/airplane.png")));
             final File inputFile = new File("testResources/airplane.png");
             assertTrue("Input File "+inputFile.getAbsolutePath() + "does not exist",inputFile.exists());
             assertTrue("Input File "+inputFile.getAbsolutePath() + "cannot be read", inputFile.canRead());
