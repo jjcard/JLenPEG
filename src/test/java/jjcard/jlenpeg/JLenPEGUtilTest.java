@@ -30,29 +30,29 @@ public class JLenPEGUtilTest {
 		assertTrue(LenPEGUtil.isLenna( ImageIO.read(new File("src/test/resources/Lenna.bmp"))));
 	}
 	
-	@Test
-	public void registorReaderTest() {
-	    LenPEGUtil.registerReader();
-	    
-	    IIORegistry registory = IIORegistry.getDefaultInstance();
-	    assertNotNull(registory);
-	    assertTrue(registory.contains(LenPEGUtil.getDefaultReader()));
-	    assertNotNull(registory.getServiceProviderByClass(lenPEGImageReaderSpi.class));
-	    
-	    LenPEGUtil.deregisterReader();
-	    assertNull(registory.getServiceProviderByClass(lenPEGImageReaderSpi.class));
-	}
-	
-	   @Test
-	    public void registorWriterTest() {
-	        LenPEGUtil.registerWriter();
-	        
-	        IIORegistry registory = IIORegistry.getDefaultInstance();
-	        assertNotNull(registory);
-	        assertTrue(registory.contains(LenPEGUtil.getDefaultWriter()));
-	        assertNotNull(registory.getServiceProviderByClass(lenPEGImageWriterSpi.class));
-	        
-	        LenPEGUtil.deregisterWriter();
-	        assertNull(registory.getServiceProviderByClass(lenPEGImageWriterSpi.class));
-	    }
+//	@Test
+//	public void registorReaderTest() {
+//	    LenPEGUtil.registerReader();
+//	    
+//	    IIORegistry registory = IIORegistry.getDefaultInstance();
+//	    assertNotNull(registory);
+//	    assertTrue(registory.contains(LenPEGUtil.getDefaultReader()));
+//	    assertNotNull(registory.getServiceProviderByClass(lenPEGImageReaderSpi.class));
+//	    
+//	    LenPEGUtil.deregisterReader();
+//	    assertNull(registory.getServiceProviderByClass(lenPEGImageReaderSpi.class));
+//	}
+//	
+//	   @Test
+//	    public void registorWriterTest() {
+//	        LenPEGUtil.registerWriter();
+//	        
+//	        IIORegistry registory = IIORegistry.getDefaultInstance();
+//	        assertNotNull(registory);
+//	        assertTrue(registory.contains(LenPEGUtil.getDefaultWriter()));
+//	        assertNotNull(registory.getServiceProviderByClass(lenPEGImageWriterSpi.class));
+//	        
+//	        LenPEGUtil.deregisterWriter();
+//	        assertNull(registory.getServiceProviderByClass(lenPEGImageWriterSpi.class));
+//	    }
 }

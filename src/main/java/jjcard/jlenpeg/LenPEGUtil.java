@@ -6,84 +6,12 @@ import java.awt.image.RenderedImage;
 import java.io.InputStream;
 
 import javax.imageio.ImageIO;
-import javax.imageio.spi.IIORegistry;
 
 public class LenPEGUtil {
-    private static lenPEGImageWriterSpi DEFAULT_WRITER = new lenPEGImageWriterSpi();
-    private static lenPEGImageReaderSpi DEFAULT_READER = new lenPEGImageReaderSpi();
     
     public static final int LENNA_WIDTH = 512;
     public static final int LENNA_HEIGHT = 512;
     
-    /**
-     * Registers default writer to default IORegistry instance
-     */
-	public static void registerWriter() {
-		registerWriter(IIORegistry.getDefaultInstance());
-	}
-    /**
-     * Registers default writer to given IORegistry instance
-     */
-	public static void registerWriter(IIORegistry reg) {
-		reg.registerServiceProvider(DEFAULT_WRITER);
-	}
-    /**
-     * Registers default reader to default IORegistry instance
-     */
-	public static void registerReader() {
-		registerReader(IIORegistry.getDefaultInstance());
-	}
-    /**
-     * Registers default reader to given IORegistry instance
-     */
-	public static void registerReader(IIORegistry reg) {
-		reg.registerServiceProvider(DEFAULT_READER);
-	}
-    /**
-     * Registers default reader and default writer to default IORegistry instance
-     */
-	public static void registerBoth() {
-		registerBoth(IIORegistry.getDefaultInstance());
-	}
-    /**
-     * Registers default reader and default writer to given IORegistry instance
-     */
-	public static void registerBoth(IIORegistry reg) {
-		registerReader(reg);
-		registerWriter(reg);
-	}
-	
-	
-	public static void deregisterWriter() {
-		deregisterWriter(IIORegistry.getDefaultInstance());
-	}
-
-	public static void deregisterWriter(IIORegistry reg) {
-		reg.deregisterServiceProvider(DEFAULT_WRITER);
-	}
-
-	public static void deregisterReader() {
-		deregisterReader(IIORegistry.getDefaultInstance());
-	}
-
-	public static void deregisterReader(IIORegistry reg) {
-		reg.deregisterServiceProvider(DEFAULT_READER);
-	}
-
-	public static void deregisterBoth() {
-		deregistorBoth(IIORegistry.getDefaultInstance());
-	}
-
-	public static void deregistorBoth(IIORegistry reg) {
-		deregisterReader(reg);
-		deregisterWriter(reg);
-	}
-	public static lenPEGImageWriterSpi getDefaultWriter() {
-	    return DEFAULT_WRITER;
-	}
-	public static lenPEGImageReaderSpi getDefaultReader() {
-	    return DEFAULT_READER;
-	}
 	
 	/**
 	 * The Image to compare to

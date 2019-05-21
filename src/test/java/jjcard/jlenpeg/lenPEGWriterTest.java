@@ -13,24 +13,19 @@ import java.util.Arrays;
 import javax.imageio.ImageIO;
 
 import org.apache.commons.io.FileUtils;
-import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
 public class lenPEGWriterTest {
 	@BeforeClass
 	public static void setup() {
-		LenPEGUtil.registerWriter();
 		File outputFile = new File("bin/");
 		if (!outputFile.exists()) {
 		    outputFile.mkdir();
 		}
 		
 	}
-	@AfterClass
-	public static void tearDown() {
-		LenPEGUtil.deregisterWriter();
-	}
+
 	@Test
 	public void writeLena_bmp() throws IOException {
 		File outputFile = new File("bin/writeLenaBmp.test");

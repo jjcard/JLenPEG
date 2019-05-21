@@ -10,21 +10,9 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
-import org.junit.AfterClass;
-import org.junit.BeforeClass;
 import org.junit.Test;
 
 public class LenPEGReaderTest {
-
-	@BeforeClass
-	public static void setUpBeforeClass() throws Exception {
-		LenPEGUtil.registerReader();
-	}
-
-    @AfterClass
-    public static void tearDownAfterClass() throws Exception {
-        LenPEGUtil.deregisterReader();
-    }
 
     @Test
     public void lennaImageReadTest() throws IOException {
