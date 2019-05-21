@@ -7,5 +7,5 @@ Note that this library is for entertainment purposes only, and should not be use
 
 
 
-###Installing
+### Installing
 Just add the library to your classpath, the Image IO service registry service will do the rest.
