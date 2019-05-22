@@ -1,5 +1,6 @@
 package jjcard.jlenpeg;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
@@ -33,6 +34,19 @@ public class LenPEGReaderTest {
         assertNotNull("Image read was null", image);
         assertFalse("Should not be Lenna", LenPEGUtil.isLenna(image));
 
+    }
+    @Test
+    public void simplePngTest() throws IOException {
+        //test to make sure doesn't screw up reading other image formats
+        File inputFile = new File("src/test/resources/airplane.png");
+        assertTrue("Input File "+inputFile.getAbsolutePath() + " does not exist",inputFile.exists());
+        assertTrue("Input File "+inputFile.getAbsolutePath() + " cannot be read",inputFile.canRead());
+        BufferedImage image = ImageIO.read(inputFile);
+        assertNotNull("Image read was null", image);
+        assertFalse("Should not be Lenna", LenPEGUtil.isLenna(image));
+        assertEquals(512, image.getHeight());
+        assertEquals(512, image.getWidth());
+        
     }
 
 }
