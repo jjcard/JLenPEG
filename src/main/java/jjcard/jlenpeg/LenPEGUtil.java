@@ -25,12 +25,14 @@ public final class LenPEGUtil {
 	 * The Image to compare to
 	 */
 	private static BufferedImage lenna;
+	
+	private static Exception initException;
 	static {
 		try {
 		    InputStream lennaInputStream = LenPEGUtil.class.getResourceAsStream("/Lenna.png");
 			setLenna(ImageIO.read(lennaInputStream));
 		} catch (Exception e) {
-			e.printStackTrace();
+		    initException = e;
 		}
 	}
 	
@@ -45,6 +47,9 @@ public final class LenPEGUtil {
 		LenPEGUtil.lenna = lenna;
 	}
 	public static boolean isLenna(final RenderedImage image) throws IllegalStateException {
+	    if (initException != null) {
+	        throw new IllegalStateException(initException.getMessage());
+	    }
 		if (lenna == null) {
 			throw new IllegalStateException("original lenna photo not found");
 		}
