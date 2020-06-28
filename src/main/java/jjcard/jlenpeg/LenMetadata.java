@@ -6,7 +6,7 @@ import javax.imageio.metadata.IIOMetadata;
 import org.w3c.dom.Node;
 
 public class LenMetadata extends IIOMetadata {
-	public static String DEFAULT_OTHER_ALGORITHM = "jpeg";
+	public static final String DEFAULT_OTHER_ALGORITHM = "jpeg";
 	/**
 	 * The compression algorithm to use if not Lenna
 	 */
