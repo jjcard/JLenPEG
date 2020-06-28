@@ -3,8 +3,8 @@ install: true
 
 jdk:
  - openjdk8
-env:
-  - CI=true
+before_install: 
+ - chmod +x gradlew
 script: 
   - ./gradlew build --scan
 before_cache:
