@@ -140,6 +140,8 @@ public class LenPEGReader extends ImageReader {
 				realReader = new InternalLennaReader(getOriginatingProvider());
 			} else if (firstBit == LenPEGUtil.IS_NOT_LENNA_BIT){
 				//use this instead
+//			    inputStream.mark();
+			    inputStream.flush();
 				realReader = getNextImageReader(inputStream);
 				realReader.setInput(inputStream);
 			} else {
