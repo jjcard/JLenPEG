@@ -22,14 +22,12 @@ public final class LenPEGSpiUtil {
 	private static final Class<?>[] OUTPUT_TYPES = new Class[] { ImageOutputStream.class };
 	private static final int OUTPUT_TYPES_LEN = OUTPUT_TYPES.length;
 	
-	//TODO figure out input types
 	private static final Class<?>[] INPUT_TYPES = new Class[] { ImageInputStream.class };
 	private static final int INPUT_TYPES_LEN = INPUT_TYPES.length;
 	
 	private static final String[] READER_SPI_NAMES = new String[] { "jjcard.jlenpeg.LenPEGImageReaderSpi" };
 	private static final int READER_SPI_NAMES_LEN = READER_SPI_NAMES.length;
 	
-	//probably this?
 	private static final String[] WRITER_SPI_NAMES = new String[] { "jjcard.jlenpeg.LenPEGImageWriterSpi" };
 	private static final int WRITER_SPI_NAMES_LEN = WRITER_SPI_NAMES.length;
 	

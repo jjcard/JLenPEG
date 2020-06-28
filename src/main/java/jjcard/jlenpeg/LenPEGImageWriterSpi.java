@@ -10,7 +10,7 @@ import javax.imageio.spi.ImageWriterSpi;
 public class LenPEGImageWriterSpi extends ImageWriterSpi {
 
 	public LenPEGImageWriterSpi() {
-		super(VENDOR_NAME, VERSION, LenPEGSpiUtil.names(), suffixes(), mimeTypes(), WRITER_CLASS_NAME,
+		super(VENDOR_NAME, VERSION, names(), suffixes(), mimeTypes(), WRITER_CLASS_NAME,
 				outputTypes(), readerSpiNames(), false,
 				null, null, null, null, true, null, null, null, null);
 	}

@@ -60,7 +60,7 @@ public class LenPEGWriter extends ImageWriter {
 			if (LenPEGUtil.isLenna(actualImage)) {
 				writeLennaToFile(outputStream);
 			} else {
-				outputStream.writeBit(1);
+				outputStream.writeBit(LenPEGUtil.IS_NOT_LENNA_BIT);
 				
 				final String formatToUse;
 				if (streamMetadata instanceof LenMetadata) {
@@ -111,8 +111,7 @@ public class LenPEGWriter extends ImageWriter {
 	}
 	protected void writeLennaToFile(ImageOutputStream outputStream) throws IOException {
 		//assume version 1 for now
-//		outputStream.writeByte(0);
-		outputStream.writeBit(0);
+		outputStream.writeBit(LenPEGUtil.IS_LENNA_BIT);
 	}
 
 }

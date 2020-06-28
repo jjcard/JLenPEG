@@ -5,17 +5,22 @@ import java.util.Locale;
 
 import javax.imageio.ImageReader;
 import javax.imageio.spi.ImageReaderSpi;
+import javax.imageio.stream.ImageInputStream;
 
 public class LenPEGImageReaderSpi extends ImageReaderSpi {
 	
 	public LenPEGImageReaderSpi() {
-		super(VENDOR_NAME, VERSION, LenPEGSpiUtil.names(), suffixes(), mimeTypes(), READER_CLASS_NAME,
+		super(VENDOR_NAME, VERSION, names(), suffixes(), mimeTypes(), READER_CLASS_NAME,
 				inputTypes(), writerSpiNames(), false,
 				null, null, null, null, true, null, null, null, null);
 	}
 
 	@Override
 	public boolean canDecodeInput(Object source) throws IOException {
+        if (!(source instanceof ImageInputStream)) {
+            return false;
+        }
+        
 		return true;
 	}
 

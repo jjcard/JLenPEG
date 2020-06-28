@@ -17,6 +17,9 @@ public final class LenPEGUtil {
     public static final int LENNA_WIDTH = 512;
     public static final int LENNA_HEIGHT = 512;
     
+    public static final int IS_LENNA_BIT = 0;
+    public static final int IS_NOT_LENNA_BIT = 1;
+    
 	
 	/**
 	 * The Image to compare to

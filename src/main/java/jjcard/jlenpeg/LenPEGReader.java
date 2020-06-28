@@ -119,7 +119,7 @@ public class LenPEGReader extends ImageReader {
 		return image;
 	}
 	
-	protected void assertInput() {
+	protected void assertInput() throws IllegalStateException {
 		if (getInput() == null) {
 			throw new IllegalStateException("input is null");
 		}
@@ -132,12 +132,13 @@ public class LenPEGReader extends ImageReader {
 		
 		if (!inited) {
 			ImageInputStream inputStream = (ImageInputStream) getInput();
+			//set back to start of stream
 			inputStream.seek(0);
 			int firstBit = inputStream.readBit();
-			if (firstBit == 0) {
+			if (firstBit == LenPEGUtil.IS_LENNA_BIT) {
 				//IT's LENNA!
 				realReader = new InternalLennaReader(getOriginatingProvider());
-			} else if (firstBit == 1){
+			} else if (firstBit == LenPEGUtil.IS_NOT_LENNA_BIT){
 				//use this instead
 				realReader = getNextImageReader(inputStream);
 				realReader.setInput(inputStream);
@@ -153,7 +154,7 @@ public class LenPEGReader extends ImageReader {
 	    Iterator<ImageReader> imageReaders = ImageIO.getImageReaders(inputStream);
 	    while(imageReaders.hasNext()) {
 	        ImageReader reader = imageReaders.next();
-	        if (! (reader instanceof LenPEGReader)) {
+            if (!(reader instanceof LenPEGReader)) {
 	            return reader;
 	        }
 	        
