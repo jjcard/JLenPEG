@@ -40,7 +40,7 @@ wrapper {
 	gradleVersion = '6.5'
 }
 pmd {
-	ruleSets = ["java-basic", "java-naming", "java-braces", "java-design", "java-unnecessary"]
+	ruleSets = ["category/java/errorprone.xml", "category/java/bestpractices.xml"]
 	ignoreFailures = true;
 }
 
