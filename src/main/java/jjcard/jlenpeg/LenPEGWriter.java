@@ -60,10 +60,9 @@ public class LenPEGWriter extends ImageWriter {
 			if (LenPEGUtil.isLenna(actualImage)) {
 				writeLennaToFile(outputStream);
 			} else {
-//				outputStream.writeByte(0);
 				outputStream.writeBit(1);
 				
-				String formatToUse;
+				final String formatToUse;
 				if (streamMetadata instanceof LenMetadata) {
 					formatToUse = ((LenMetadata) streamMetadata).getOtherAlgorithm();
 				} else {

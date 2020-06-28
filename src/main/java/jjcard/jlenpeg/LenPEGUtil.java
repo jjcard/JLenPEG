@@ -7,7 +7,12 @@ import java.io.InputStream;
 
 import javax.imageio.ImageIO;
 
-public class LenPEGUtil {
+public final class LenPEGUtil {
+    
+    
+    private LenPEGUtil() {
+        //utility class
+    }
     
     public static final int LENNA_WIDTH = 512;
     public static final int LENNA_HEIGHT = 512;

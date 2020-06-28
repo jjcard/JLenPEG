@@ -5,7 +5,7 @@ import java.util.Arrays;
 import javax.imageio.stream.ImageInputStream;
 import javax.imageio.stream.ImageOutputStream;
 
-public class LenPEGSpiUtil {
+public final class LenPEGSpiUtil {
 	private LenPEGSpiUtil() {
 		//all static methods and fields
 	}
