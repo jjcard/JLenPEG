@@ -1,5 +1,6 @@
 package jjcard.jlenpeg;
 
+import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertTrue;
 
 import java.awt.image.RenderedImage;
@@ -8,8 +9,6 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.nio.file.Files;
-import java.util.Arrays;
-
 import javax.imageio.ImageIO;
 
 import org.apache.commons.io.FileUtils;
@@ -48,7 +47,7 @@ public class LenPEGWriterTest {
 			
 			byte[] expectedContents = Files.readAllBytes(new File("src/test/resources/writer/writeLenaBmp.expected").toPath());
 			
-			assertTrue("Actual writeLenaBmp contents different then expected",Arrays.equals(expectedContents, actualContents));
+			assertArrayEquals("Actual writeLenaBmp contents different then expected",expectedContents, actualContents);
 		} finally {
             if (outputStream != null) {
                 outputStream.close();
@@ -80,8 +79,7 @@ public class LenPEGWriterTest {
             byte[] expectedContents = Files
                     .readAllBytes(new File("src/test/resources/writer/writeNotLenaPng.expected").toPath());
 
-            assertTrue("Actual writeLenaBmp contents different then expected",
-                    Arrays.equals(expectedContents, actualContents));
+            assertArrayEquals("Actual writeLenaBmp contents different then expected", expectedContents, actualContents);
 		} finally {
             if (outputStream != null) {
                 outputStream.close();
