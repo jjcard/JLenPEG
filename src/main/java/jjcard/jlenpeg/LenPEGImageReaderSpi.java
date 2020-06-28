@@ -6,9 +6,9 @@ import java.util.Locale;
 import javax.imageio.ImageReader;
 import javax.imageio.spi.ImageReaderSpi;
 
-public class lenPEGImageReaderSpi extends ImageReaderSpi {
+public class LenPEGImageReaderSpi extends ImageReaderSpi {
 	
-	public lenPEGImageReaderSpi() {
+	public LenPEGImageReaderSpi() {
 		super(VENDOR_NAME, VERSION, LenPEGSpiUtil.names(), suffixes(), mimeTypes(), READER_CLASS_NAME,
 				inputTypes(), writerSpiNames(), false,
 				null, null, null, null, true, null, null, null, null);

@@ -7,9 +7,9 @@ import javax.imageio.ImageTypeSpecifier;
 import javax.imageio.ImageWriter;
 import javax.imageio.spi.ImageWriterSpi;
 
-public class lenPEGImageWriterSpi extends ImageWriterSpi {
+public class LenPEGImageWriterSpi extends ImageWriterSpi {
 
-	public lenPEGImageWriterSpi() {
+	public LenPEGImageWriterSpi() {
 		super(VENDOR_NAME, VERSION, LenPEGSpiUtil.names(), suffixes(), mimeTypes(), WRITER_CLASS_NAME,
 				outputTypes(), readerSpiNames(), false,
 				null, null, null, null, true, null, null, null, null);

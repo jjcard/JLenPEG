@@ -21,7 +21,8 @@ public class LenPEGWriterTest {
 	public static void setup() {
 		File outputFile = new File("bin/");
 		if (!outputFile.exists()) {
-		    outputFile.mkdir();
+		   final boolean madeDir = outputFile.mkdir();
+		   assertTrue("Should have made directory",madeDir);
 		}
 		
 	}
