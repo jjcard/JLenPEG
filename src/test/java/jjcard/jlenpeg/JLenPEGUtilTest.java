@@ -16,10 +16,11 @@ public class JLenPEGUtilTest {
 
     
     @Test
-    public void readInLennaTest() {
-        
-        InputStream input = LenPEGUtil.class.getResourceAsStream("/Lenna.png");
-        assertNotNull("Could not fined Lenna input",input);
+    public void readInLennaTest() throws IOException {
+
+        try (InputStream input = LenPEGUtil.class.getResourceAsStream("/Lenna.png")) {
+            assertNotNull("Could not fined Lenna input", input);
+        }
     }
 	@Test
 	public void nullTest() {
