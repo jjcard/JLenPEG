@@ -37,7 +37,7 @@ sourceSets {
 }
 
 wrapper {
-	gradleVersion = '6.5'
+	gradleVersion = '6.7'
 }
 pmd {
 	ruleSets = ["category/java/errorprone.xml", "category/java/bestpractices.xml", "category/java/performance.xml", "category/java/security.xml"]
