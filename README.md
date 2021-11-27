@@ -1,5 +1,4 @@
 # JLenPEG
-[![Build Status](https://travis-ci.org/jjcard/JLenPEG.svg?branch=master)](https://travis-ci.org/jjcard/JLenPEG)
 
 Java implementation of the brilliant image compression algorithm, [LenPEG](http://www.dangermouse.net/esoteric/lenpeg.html).
 Currently, this library is only striving to implement Version 1 of the algorithm.

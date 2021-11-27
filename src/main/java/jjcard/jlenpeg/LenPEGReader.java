@@ -113,7 +113,7 @@ public class LenPEGReader extends ImageReader {
 		init(imageIndex);
 		processImageStarted(imageIndex);
 		
-		BufferedImage image =  realReader.read(minIndex, param);
+		BufferedImage image = realReader.read(minIndex, param);
 		
 		processImageComplete();
 		return image;
