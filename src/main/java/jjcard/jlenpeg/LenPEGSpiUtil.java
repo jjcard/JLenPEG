@@ -46,7 +46,7 @@ public final class LenPEGSpiUtil {
 	public static String[] mimeTypes() { return Arrays.copyOf(MIME_TYPES, MIME_TYPES_LEN);}
 	/**
 	 * no suffixes for now, returns null
-	 * @return
+	 * @return null
 	 */
 	public static String[] suffixes() { return null;}
 }

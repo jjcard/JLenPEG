@@ -8,8 +8,7 @@ import java.io.InputStream;
 import javax.imageio.ImageIO;
 
 public final class LenPEGUtil {
-    
-    
+
     private LenPEGUtil() {
         //utility class
     }
@@ -58,7 +57,7 @@ public final class LenPEGUtil {
 	public static BufferedImage getLenna() {
 		return lenna;
 	}
-	protected static boolean areImagesEqual(final RenderedImage biA, final RenderedImage biB) {
+	private static boolean areImagesEqual(final RenderedImage biA, final RenderedImage biB) {
 		if (biA == biB) {
 			return true;
 		}

@@ -80,8 +80,8 @@ public class LenPEGWriter extends ImageWriter {
 	}
 	
 	/**
-	 * CHecks suffix, format, then MIME in that order.
-	 * @param formatToUse
+	 * Checks suffix, format, then MIME in that order.
+	 * @param formatToUse to check
 	 * @return ImageWriter
 	 * @throws IllegalArgumentException if not found
 	 */

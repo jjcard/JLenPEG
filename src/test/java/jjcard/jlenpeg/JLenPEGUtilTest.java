@@ -1,23 +1,18 @@
 package jjcard.jlenpeg;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
+import org.junit.Test;
 
+import javax.imageio.ImageIO;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 
-import javax.imageio.ImageIO;
-
-import org.junit.Test;
+import static org.junit.Assert.*;
 
 public class JLenPEGUtilTest {
-
     
     @Test
     public void readInLennaTest() throws IOException {
-
         try (InputStream input = LenPEGUtil.class.getResourceAsStream("/Lenna.png")) {
             assertNotNull("Could not fined Lenna input", input);
         }

@@ -32,38 +32,38 @@ public class LenPEGReader extends ImageReader {
         }
 
         @Override
-        public int getNumImages(boolean allowSearch) throws IOException {
+        public int getNumImages(boolean allowSearch) {
             return 1;
         }
 
         @Override
-        public int getWidth(int imageIndex) throws IOException {
+        public int getWidth(int imageIndex) {
             return LenPEGUtil.LENNA_WIDTH;
         }
 
         @Override
-        public int getHeight(int imageIndex) throws IOException {
+        public int getHeight(int imageIndex) {
             return LenPEGUtil.LENNA_HEIGHT;
         }
 
         @Override
-        public Iterator<ImageTypeSpecifier> getImageTypes(int imageIndex) throws IOException {
+        public Iterator<ImageTypeSpecifier> getImageTypes(int imageIndex) {
             // TODO Auto-generated method stub
             return null;
         }
 
         @Override
-        public IIOMetadata getStreamMetadata() throws IOException {
+        public IIOMetadata getStreamMetadata() {
             return null;
         }
 
         @Override
-        public IIOMetadata getImageMetadata(int imageIndex) throws IOException {
+        public IIOMetadata getImageMetadata(int imageIndex) {
             return null;
         }
 
         @Override
-        public BufferedImage read(int imageIndex, ImageReadParam param) throws IOException {
+        public BufferedImage read(int imageIndex, ImageReadParam param) {
             return LenPEGUtil.getLenna();
         }
 
@@ -74,7 +74,7 @@ public class LenPEGReader extends ImageReader {
     }
 
 	@Override
-	public int getNumImages(boolean allowSearch) throws IOException {
+	public int getNumImages(boolean allowSearch) throws IllegalStateException {
 		assertInput();
 		return 1;
 	}
@@ -98,7 +98,7 @@ public class LenPEGReader extends ImageReader {
 	}
 
 	@Override
-	public IIOMetadata getStreamMetadata() throws IOException {
+	public IIOMetadata getStreamMetadata() {
 		return null;
 	}
 
@@ -159,11 +159,20 @@ public class LenPEGReader extends ImageReader {
             if (!(reader instanceof LenPEGReader)) {
 	            return reader;
 	        }
-	        
 	    }
+		//not an easy well to tell if image isn't LenPEG formatted, so just check from zero
+		inputStream.seek(0);
+		imageReaders = ImageIO.getImageReaders(inputStream);
+		while(imageReaders.hasNext()) {
+			ImageReader reader = imageReaders.next();
+			if (!(reader instanceof LenPEGReader)) {
+				return reader;
+			}
+		}
+
 	    throw new RuntimeException("Image Readers Not found for sub-format");
 	}
-	protected void checkBounds(final int index) throws IOException {
+	protected void checkBounds(final int index) throws IllegalStateException, IndexOutOfBoundsException {
 		assertInput();
 		
 		if (index < getMinIndex()) {

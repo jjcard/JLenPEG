@@ -1,11 +1,11 @@
 package jjcard.jlenpeg;
-import static jjcard.jlenpeg.LenPEGSpiUtil.*;
-import java.io.IOException;
-import java.util.Locale;
 
 import javax.imageio.ImageTypeSpecifier;
 import javax.imageio.ImageWriter;
 import javax.imageio.spi.ImageWriterSpi;
+import java.util.Locale;
+
+import static jjcard.jlenpeg.LenPEGSpiUtil.*;
 
 public class LenPEGImageWriterSpi extends ImageWriterSpi {
 
@@ -21,7 +21,7 @@ public class LenPEGImageWriterSpi extends ImageWriterSpi {
 	}
 
 	@Override
-	public ImageWriter createWriterInstance(Object extension) throws IOException {
+	public ImageWriter createWriterInstance(Object extension) {
 		return new LenPEGWriter(this);
 	}
 
