@@ -1,9 +1,8 @@
 package jjcard.jlenpeg;
 
-import javax.imageio.metadata.IIOInvalidTreeException;
-import javax.imageio.metadata.IIOMetadata;
-
 import org.w3c.dom.Node;
+
+import javax.imageio.metadata.IIOMetadata;
 
 public class LenMetadata extends IIOMetadata {
 	public static final String DEFAULT_OTHER_ALGORITHM = "jpeg";
@@ -33,7 +32,7 @@ public class LenMetadata extends IIOMetadata {
 	}
 
 	@Override
-	public void mergeTree(String formatName, Node root) throws IIOInvalidTreeException {
+	public void mergeTree(String formatName, Node root) {
 
 	}
 

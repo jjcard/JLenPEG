@@ -1,27 +1,25 @@
 package jjcard.jlenpeg;
 
-import static org.junit.Assert.assertArrayEquals;
-import static org.junit.Assert.assertTrue;
+import org.apache.commons.io.FileUtils;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
 
+import javax.imageio.ImageIO;
 import java.awt.image.RenderedImage;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.nio.file.Files;
-import javax.imageio.ImageIO;
-
-import org.apache.commons.io.FileUtils;
-import org.junit.BeforeClass;
-import org.junit.Test;
 
 public class LenPEGWriterTest {
-	@BeforeClass
+	@BeforeAll
 	public static void setup() {
 		File outputFile = new File("bin/");
 		if (!outputFile.exists()) {
 		   final boolean madeDir = outputFile.mkdir();
-		   assertTrue("Should have made directory",madeDir);
+		   Assertions.assertTrue(madeDir, "Should have made directory");
 		}
 		
 	}
@@ -35,19 +33,19 @@ public class LenPEGWriterTest {
         OutputStream outputStream = null;
 		try {
 			final File inputFile = new File("src/test/resources/Lenna.bmp");
-            assertTrue("Input File "+inputFile.getAbsolutePath() + " does not exist",inputFile.exists());
-            assertTrue("Input File "+inputFile.getAbsolutePath() + " cannot be read", inputFile.canRead());
+            Assertions.assertTrue(inputFile.exists(), "Input File "+inputFile.getAbsolutePath() + " does not exist");
+            Assertions.assertTrue(inputFile.canRead(), "Input File "+inputFile.getAbsolutePath() + " cannot be read");
             RenderedImage lennaBmp = ImageIO.read(inputFile);
 			outputStream = new FileOutputStream(outputFile);
 			ImageIO.write(lennaBmp, "lenPEG", outputStream);
-			assertTrue("Image file should now exist", outputFile.exists());
+			Assertions.assertTrue(outputFile.exists(), "Image file should now exist");
 			
 			
 			byte[] actualContents = Files.readAllBytes(outputFile.toPath());
 			
 			byte[] expectedContents = Files.readAllBytes(new File("src/test/resources/writer/writeLenaBmp.expected").toPath());
 			
-			assertArrayEquals("Actual writeLenaBmp contents different then expected",expectedContents, actualContents);
+			Assertions.assertArrayEquals(expectedContents, actualContents, "Actual writeLenaBmp contents different then expected");
 		} finally {
             if (outputStream != null) {
                 outputStream.close();
@@ -67,19 +65,19 @@ public class LenPEGWriterTest {
 		OutputStream outputStream = null;
 		try {
             final File inputFile = new File("src/test/resources/airplane.png");
-            assertTrue("Input File "+inputFile.getAbsolutePath() + " does not exist",inputFile.exists());
-            assertTrue("Input File "+inputFile.getAbsolutePath() + " cannot be read", inputFile.canRead());
+            Assertions.assertTrue(inputFile.exists(), "Input File "+inputFile.getAbsolutePath() + " does not exist");
+            Assertions.assertTrue(inputFile.canRead(), "Input File "+inputFile.getAbsolutePath() + " cannot be read");
             RenderedImage notlennapng = ImageIO.read(inputFile);
             outputStream = new FileOutputStream(outputFile);
 			ImageIO.write(notlennapng, "lenPEG", outputStream);
-			assertTrue("Image file should now exist", outputFile.exists());
+			Assertions.assertTrue(outputFile.exists(), "Image file should now exist");
 			
             byte[] actualContents = Files.readAllBytes(outputFile.toPath());
 
             byte[] expectedContents = Files
                     .readAllBytes(new File("src/test/resources/writer/writeNotLenaPng.expected").toPath());
 
-            assertArrayEquals("Actual writeLenaBmp contents different then expected", expectedContents, actualContents);
+            Assertions.assertArrayEquals(expectedContents, actualContents, "Actual writeLenaBmp contents different then expected");
 		} finally {
             if (outputStream != null) {
                 outputStream.close();
