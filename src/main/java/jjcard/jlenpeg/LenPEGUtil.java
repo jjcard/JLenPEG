@@ -29,6 +29,9 @@ public final class LenPEGUtil {
 	static {
 		try {
 		    InputStream lennaInputStream = LenPEGUtil.class.getResourceAsStream("/Lenna.png");
+			if (lennaInputStream == null) {
+				throw new IllegalArgumentException("lenna image cannot be null");
+			}
 			setLenna(ImageIO.read(lennaInputStream));
 		} catch (Exception e) {
 		    initException = e;

@@ -3,6 +3,7 @@ package jjcard.jlenpeg;
 import org.w3c.dom.Node;
 
 import javax.imageio.metadata.IIOMetadata;
+import java.util.Objects;
 
 public class LenMetadata extends IIOMetadata {
 	public static final String DEFAULT_OTHER_ALGORITHM = "jpeg";
@@ -45,15 +46,10 @@ public class LenMetadata extends IIOMetadata {
 		return otherAlgorithm;
 	}
 	/**
-	 * Gets the algorithm to use if image is not lenna. Defaults to "jpeg", if not set.
-	 * @param otherAlgorithm
+	 * Sets the algorithm to use to write if image is not lenna. Defaults to "jpeg", if not set.
 	 */
 	public void setOtherAlgorithm(String otherAlgorithm) {
-		if (otherAlgorithm == null) {
-			this.otherAlgorithm = DEFAULT_OTHER_ALGORITHM;
-		} else {
-			this.otherAlgorithm = otherAlgorithm;			
-		}
+        this.otherAlgorithm = Objects.requireNonNullElse(otherAlgorithm, DEFAULT_OTHER_ALGORITHM);
 	}
 
 }

@@ -12,10 +12,7 @@ import javax.imageio.metadata.IIOMetadata;
 import javax.imageio.spi.ImageReaderSpi;
 import javax.imageio.stream.ImageInputStream;
 
-/**
- * Doesn't quite work yet 
- *
- */
+
 public class LenPEGReader extends ImageReader {
 	
 	private boolean inited = false;

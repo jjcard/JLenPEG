@@ -1,11 +1,11 @@
 package jjcard.jlenpeg;
+
 import static jjcard.jlenpeg.LenPEGSpiUtil.*;
-import java.io.IOException;
-import java.util.Locale;
 
 import javax.imageio.ImageReader;
 import javax.imageio.spi.ImageReaderSpi;
 import javax.imageio.stream.ImageInputStream;
+import java.util.Locale;
 
 public class LenPEGImageReaderSpi extends ImageReaderSpi {
 	
@@ -16,7 +16,7 @@ public class LenPEGImageReaderSpi extends ImageReaderSpi {
 	}
 
 	@Override
-	public boolean canDecodeInput(Object source) throws IOException {
+	public boolean canDecodeInput(Object source) {
         if (!(source instanceof ImageInputStream)) {
             return false;
         }
